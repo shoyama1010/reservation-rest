@@ -1,0 +1,310 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 250px;
+    background-color: #3B82F6;
+}
+
+nav {
+    /* background-color: #3B82F6; */
+    color: white;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.reservation {
+    width: 30%;
+    margin: 10px auto;
+    margin-left: 30px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.mypage {
+    /* display: flex; */
+    flex-wrap: wrap;
+}
+
+.mypage h1 {  
+    text-align: center;
+}
+
+.mypage h2 {
+    text-align: center;
+}
+
+.reservation {
+    width: 40%;
+}
+
+.reservation-favorite {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.reservation-card {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    gap: 50px;
+}
+
+/* .reservation-status p {
+    margin: 1px 1px 1px;
+} */
+
+.favorite-card {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    height: 300px;
+}
+
+
+.favorite-conte h2 {
+    text-align: center;
+}
+
+.favorite-shops {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.favorite-card img {
+    width: 100%;
+    height: 45%;
+    object-fit: cover;
+}
+
+h1,
+h2 {
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form button {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #2563EB;
+}
+
+main {
+    max-width: 1100px;
+}
+
+.search-container  {
+    width: 80px;
+    margin-left: 700px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.search-container form {
+    margin: 10px 0 0;
+}
+
+.shop-info {
+    width: 60%;
+}
+
+.shop-info img {
+    width: 40%;
+}
+
+.shop-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.shop-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.shop-card img {
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+}
+
+.shop-card h2 {
+    margin: 10px;
+}
+
+.shop-detail {
+    display: flex;
+}
+
+.shop-card p {
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-card a {
+    width: 80px;
+    /* display: block; */
+    margin-left: 20px;
+    padding: 8px;
+    background-color: #3B82F6;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.shop-card a:hover {
+    background-color: #2563EB;
+}
+
+.shop-reservation {
+    width: 40%;
+}
+
+.favorite-active {
+    margin-bottom: 5px;
+}
+
+.favorite-section {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.favorite-card a {
+    width: 60px;
+    margin-left: 20px;
+    padding: 8px;
+    background-color: #3B82F6;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.favorite-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: red;
+    padding: 0;
+}
+
+.favorite-button .heart {
+    font-size: 24px;
+    color: red;
+}
+
+.favorite-form {
+    display: inline-block;
+}
+
+.favorite {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: red;
+    cursor: pointer;
+}
+
+.favorite.active {
+    color: #ff0000;
+}
+
+.shop-detail img {
+    width: 90%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.shop-info p {
+    /* text-align: center; */
+    font-size: 15px;
+}
+
+.reservation-confirm,
+.thanks-message {
+    text-align: center;
+}
+
+.favorite {
+    margin: 0 auto;
+}
+
+.contents {
+    display: flex;
+}
+
+.thanks {
+    /* margin: 0 auto; */
+    text-align: center;
+}
