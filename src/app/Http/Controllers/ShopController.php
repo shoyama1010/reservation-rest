@@ -20,6 +20,24 @@ class ShopController extends Controller
         return view('detail', compact('shop'));
     }
 
+    // 検索処理
+    public function searchByArea(Request $request)
+    {
+        $shops = Shop::where('region', 'like', '%' . $request->area . '%')->get();
+        return view('index', compact('shops'));
+    }
+
+    public function searchByGenre(Request $request)
+    {
+        $shops = Shop::where('genre', 'like', '%' . $request->genre . '%')->get();
+        return view('index', compact('shops'));
+    }
+
+    public function searchByName(Request $request)
+    {
+        $shops = Shop::where('name', 'like', '%' . $request->name . '%')->get();
+        return view('index', compact('shops'));
+    }
     
 }
 

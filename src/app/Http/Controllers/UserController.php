@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\RegisterRequest;
 
 class UserController extends Controller
 {
@@ -15,27 +16,36 @@ class UserController extends Controller
         return view('auth.register');
     }
 
-    public function store(Request $request)
+    // public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
-        // バリデーション
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        //    // バリデーション
+        //     $validator = Validator::make($request->all(), [
+        //         'name' => ['required', 'string', 'max:255'],
+        //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //         'password' => ['required', 'string', 'min:8'],
+        //     ]);
+        // if ($validator->fails()) {
+        //     return redirect()->back()->withErrors($validator)->withInput();
+        // }
 
-        // ユーザー作成
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->save();
+        // // ユーザー作成
+        // $user = new User();
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = Hash::make($request->password);
+        // $user->save();
+        // return redirect('/login')->with('success', '会員登録が完了しました。ログインしてください。');
 
-        return redirect('/login')->with('success', '会員登録が完了しました。ログインしてください。');
+        Auth::login($user);
+
+        return redirect()->route('thanks');
     }
 
     public function loginForm()
@@ -46,17 +56,24 @@ class UserController extends Controller
     public function login(Request $request)
     {
         // バリデーション
-        $credentials = $request->only('email', 'password');
+        // $credentials = $request->only('email', 'password');
+        // if (Auth::attempt($credentials)) {
+        //     return redirect()->intended('/');
+        // }
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+        if (auth()->attempt($request->only('email', 'password'))) {
+            return redirect('/');
         }
 
         return back()->withErrors([
             'email' => 'メールアドレスまたはパスワードが正しくありません。',
-        ])->withInput();
+        ]);
     }
-
+    
     public function logout()
     {
         Auth::logout();
@@ -64,17 +81,10 @@ class UserController extends Controller
     }
 
     public function mypage()
-    {
-        // if (!auth()->check()) {
-        //     return redirect('/login')->withErrors([
-        //         'login' => 'ログインが必要です。'
-        //     ]);
-        // }
-
+    {    
         $user = auth::user();
-        $reservations = $user->reservations;
-
-        $favorites = $user->favorites;
+        $reservations = optional($user)->reservations;
+        $favorites = optional($user)->favorites;
         return view('mypage', compact('reservations', 'favorites'));
     }
 
