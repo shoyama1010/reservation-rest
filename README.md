@@ -2,6 +2,8 @@
 ER図
 
 
+![店舗予約-reservation-rest](https://github.com/user-attachments/assets/26279f9d-8c3b-41d1-9cf6-6e602c7815d5)
+
 ## 環境構築
 **Dockerビルド**
 1. `git clone git@.github.com:shoyama1010/reservation-rest.git
