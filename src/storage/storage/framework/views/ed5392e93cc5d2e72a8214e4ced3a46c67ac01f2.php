@@ -12,6 +12,10 @@
 					<p>shops: <?php echo e($reservation->shop->shop_name); ?></p>
 					<p>Date/Time: <?php echo e($reservation->reservationDateTime); ?></p>
 					<p>peaple: <?php echo e($reservation->numberOfPeople); ?></p>
+
+					<!-- 追加(店舗評価ページへ) -->
+					<a href="<?php echo e(route('show', $reservation->shop->id)); ?>">店舗評価ページへ</a>
+
 					<!-- キャンセル処理 -->
 					<form action="<?php echo e(route('reservation.destroy', $reservation->id)); ?>" method="POST">
 						<?php echo csrf_field(); ?>
@@ -19,6 +23,7 @@
 						<button type="submit">キャンセル</button>
 					</form>
 				</div>
+
 				<!-- 予約更新（変更追加） -->
 				<div class="update">
 					<form action="<?php echo e(route('reservation.update', $reservation->id)); ?>" method="POST">
@@ -29,7 +34,7 @@
 
 						<label for="numberOfPeople-<?php echo e($reservation->id); ?>">People</label>
 						<input type="number" name="numberOfPeople" id="numberOfPeople-<?php echo e($reservation->id); ?>" value="<?php echo e($reservation->numberOfPeople); ?>" required>
-						<button type="submit">修正</button>
+						<button type="submit">更新</button>
 					</form>
 				</div>
 			</div>
@@ -37,7 +42,7 @@
 		</div>
 
 		<div class="favorite-conte">
-			<h2>お気に入り店<h2>
+			<h2>お気に入り店舗<h2>
 					<!-- <div class="favorite-shops"> -->
 					<?php $__currentLoopData = $favorites; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $favorite): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					<div class="favorite-shops">

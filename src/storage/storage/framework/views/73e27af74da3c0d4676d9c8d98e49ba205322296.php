@@ -5,6 +5,10 @@
 	<div class="shop-info">
 		<h1><?php echo e($shop->shop_name); ?></h1>
 		<img src="<?php echo e($shop->image_url); ?>" alt="<?php echo e($shop->shop_name); ?>">
+		<div class="contents">
+			<p>#<?php echo e($shop->region); ?></p>
+			<p>#<?php echo e($shop->genre); ?></p>
+		</div>
 		<p><?php echo e($shop->description); ?></p>
 	</div>
 
