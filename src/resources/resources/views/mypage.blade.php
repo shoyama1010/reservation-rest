@@ -14,6 +14,10 @@
 					<p>shops: {{ $reservation->shop->shop_name }}</p>
 					<p>Date/Time: {{ $reservation->reservationDateTime}}</p>
 					<p>peaple: {{ $reservation->numberOfPeople }}</p>
+
+					<!-- 追加(店舗評価ページへ) -->
+					<a href="{{ route('show', $reservation->shop->id) }}">店舗評価ページへ</a>
+
 					<!-- キャンセル処理 -->
 					<form action="{{ route('reservation.destroy', $reservation->id) }}" method="POST">
 						@csrf
@@ -21,6 +25,7 @@
 						<button type="submit">キャンセル</button>
 					</form>
 				</div>
+
 				<!-- 予約更新（変更追加） -->
 				<div class="update">
 					<form action="{{ route('reservation.update', $reservation->id) }}" method="POST">
@@ -31,7 +36,7 @@
 
 						<label for="numberOfPeople-{{ $reservation->id }}">People</label>
 						<input type="number" name="numberOfPeople" id="numberOfPeople-{{ $reservation->id }}" value="{{ $reservation->numberOfPeople }}" required>
-						<button type="submit">修正</button>
+						<button type="submit">更新</button>
 					</form>
 				</div>
 			</div>
@@ -39,7 +44,7 @@
 		</div>
 
 		<div class="favorite-conte">
-			<h2>お気に入り店<h2>
+			<h2>お気に入り店舗<h2>
 					<!-- <div class="favorite-shops"> -->
 					@foreach($favorites as $favorite)
 					<div class="favorite-shops">

@@ -7,6 +7,10 @@
 	<div class="shop-info">
 		<h1>{{ $shop->shop_name }}</h1>
 		<img src="{{ $shop->image_url }}" alt="{{ $shop->shop_name }}">
+		<div class="contents">
+			<p>#{{ $shop->region}}</p>
+			<p>#{{ $shop->genre}}</p>
+		</div>
 		<p>{{ $shop->description }}</p>
 	</div>
 
