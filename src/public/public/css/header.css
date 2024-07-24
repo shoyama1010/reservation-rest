@@ -1,0 +1,47 @@
+/* Header styling */
+header {
+	/* background-color: #333; */
+	padding: 10px 0;
+}
+
+.logo {
+    width: 250px;
+    background-color: #3B82F6;
+}
+
+header nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: flex-end;
+	margin: 0;
+	padding: 0;
+}
+
+header nav ul li {
+	margin: 0 10px;
+}
+
+header nav ul li a,
+header nav ul li label {
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+header nav ul li a:hover,
+header nav ul li label:hover {
+	text-decoration: underline;
+}
+
+/* Open modal button styling */
+.open-modal-btn {
+	background: none;
+	border: none;
+	/* color: inherit; */
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	padding: 0;
+
+}

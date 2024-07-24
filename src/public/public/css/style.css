@@ -3,38 +3,10 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+    max-width: 1500px;
+    min-width: 1000px;
 }
 
-.logo {
-    width: 250px;
-    background-color: #3B82F6;
-}
-
-nav {
-    /* background-color: #3B82F6; */
-    color: white;
-    padding: 0px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
 
 .reservation {
     width: 30%;
@@ -47,11 +19,11 @@ nav ul li a {
 }
 
 .mypage {
-    /* display: flex; */
+    display: flex;
     flex-wrap: wrap;
 }
 
-.mypage h1 {  
+.mypage h1 {
     text-align: center;
 }
 
@@ -76,9 +48,6 @@ nav ul li a {
     gap: 50px;
 }
 
-/* .reservation-status p {
-    margin: 1px 1px 1px;
-} */
 
 .favorite-card {
     display: flex;
@@ -89,10 +58,15 @@ nav ul li a {
     overflow: hidden;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
+    width: 40%;
     height: 300px;
 }
 
+.favorite-card a {
+    width: 80px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
 
 .favorite-conte h2 {
     text-align: center;
@@ -148,7 +122,7 @@ main {
     max-width: 1100px;
 }
 
-.search-container  {
+.search-container {
     width: 80px;
     margin-left: 700px;
     display: flex;
@@ -162,11 +136,15 @@ main {
 }
 
 .shop-info {
-    width: 60%;
+    width: 45%;
 }
 
 .shop-info img {
-    width: 40%;
+    width: 35%;
+}
+
+.shop-info contents {
+    margin-left: 5px;
 }
 
 .shop-card {
@@ -199,6 +177,7 @@ main {
 
 .shop-detail {
     display: flex;
+    justify-content: space-between;
 }
 
 .shop-card p {
@@ -227,6 +206,7 @@ main {
 .shop-reservation {
     width: 40%;
 }
+
 
 .favorite-active {
     margin-bottom: 5px;
@@ -307,4 +287,8 @@ main {
 .thanks {
     /* margin: 0 auto; */
     text-align: center;
+}
+
+.shop-reservation {
+    width: 50%;
 }
