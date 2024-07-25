@@ -17,23 +17,26 @@
 
 	@auth
 	<h2>レビューを投稿</h2>
-	<form method="POST" action="{{ route('reviews.store', $shop->id) }}">
-		@csrf
-		<div class="form-group">
-			<label for="rating">評価</label>
-			<select name="rating" id="rating" required>
-				<option value="">選択してください</option>
+	<div class="evaluation">
+		<form method="POST" action="{{ route('reviews.store', $shop->id) }}">
+			@csrf
+			<div class="form-group">
+				<label for="rating">評価</label>
+				<select name="rating" id="rating" required>
+					<option value="">選択してください</option>
 
-				@for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}">{{ $i }}</option>
-					@endfor
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="comment">コメント</label>
-			<textarea name="comment" id="comment"></textarea>
-		</div>
-		<button type="submit">送信</button>
-	</form>
-	@endauth
+					@for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}">{{ $i }}</option>
+						@endfor
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="comment">コメント</label>
+				<textarea name="comment" id="comment"></textarea>
+			</div>
+			<button type="submit">送信</button>
+		</form>
+		@endauth
+	</div>
 </div>
-@endsection
+
+@endsection.
